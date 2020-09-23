@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+    <h3>Add message</h3>
+    <form action="/main" method="post">
+        <input type="text" name="text" placeholder="message">
+        <input type="text" name="tag" placeholder="tag">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Filter messages</h3>
+
+    <form action="/filter" method="post">
+        <input type="text" name="tag" placeholder="filter by tag">
+        <input type="submit" value="Filter">
+    </form>
+    <h4>All messages</h4>
+    <div th:each="item: ${messages}">
+        <p th:text="${item.getText()}"/>
+        <p th:text="${item.getTag()}"/>
+    </div>
+    <h4>Filtered messages</h4>
+    <div th:each="item: ${filterMessages}">
+        <p th:text="${item.getText()}"/>
+        <p th:text="${item.getTag()}"/>
+    </div>
+
+</body>
+</html>
