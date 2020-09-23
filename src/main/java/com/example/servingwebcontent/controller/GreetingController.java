@@ -14,8 +14,8 @@ import java.util.List;
 
 @Controller
 public class GreetingController {
-@Autowired
-private MessageRepository messageRepository;
+    @Autowired
+    private MessageRepository messageRepository;
 
     @GetMapping("/")
     public String greeting(Model model) {
